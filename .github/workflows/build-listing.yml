@@ -3,6 +3,7 @@ name: Build Repo Listing
 env:
   listPublishDirectory: Website
   pathToCi: ci
+  DOTNET_ROLL_FORWARD: Major
 
 on:
   workflow_dispatch:
