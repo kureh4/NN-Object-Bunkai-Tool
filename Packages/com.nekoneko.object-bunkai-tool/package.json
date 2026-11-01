@@ -1,0 +1,22 @@
+{
+  "name": "com.nekoneko.object-bunkai-tool",
+  "displayName": "NN - Object Bunkai Tool",
+  "version": "1.3.0",
+  "unity": "2022.3",
+  "description": "VRChatアバターや衣装、小物などのメッシュを分解・統合するUnity Editorツールです。",
+  "author": {
+    "name": "ねこねこ",
+    "email": "65277297+MONON0629@users.noreply.github.com",
+    "url": "https://github.com/MONON0629/NN-Object-Bunkai-Tool"
+  },
+  "keywords": [
+    "vrchat",
+    "avatar",
+    "mesh",
+    "editor",
+    "bunkai"
+  ],
+  "legacyFolders": {
+    "Assets\\nekoneko\\NN - Object Bunkai Tool\\Editor": "b220ca446bf344efbd409fb09a90f774"
+  }
+}
