@@ -1,6 +1,6 @@
 import { baseLayerLuminance, StandardLuminance } from 'https://unpkg.com/@fluentui/web-components@2.6.1';
 
-const LISTING_URL = "https://raw.githubusercontent.com/MONON0629/NN-Object-Bunkai-Tool/main/Website/index.json";
+const LISTING_URL = "https://raw.githubusercontent.com/kureh4/NN-Object-Bunkai-Tool/main/Website/index.json";
 
 const PACKAGES = {
   "com.nekoneko.object-bunkai-tool": {
@@ -10,7 +10,7 @@ const PACKAGES = {
     version: "1.3.0",
     author: {
       name: "ねこねこ",
-      url: "https://github.com/MONON0629/NN-Object-Bunkai-Tool",
+      url: "https://github.com/kureh4/NN-Object-Bunkai-Tool",
     },
     dependencies: {
     },
