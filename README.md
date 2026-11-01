@@ -6,11 +6,9 @@ VRChatアバターや衣装、小物などのメッシュを分解・統合す�
 
 Package ID: `com.nekoneko.object-bunkai-tool`
 
-GitHub ActionsでReleaseとVPM Repository Listingを生成します。
+VPM Repository URL:
 
-VPM Repository URL（GitHub Pages公開後）:
-
-`https://monon0629.github.io/NN-Object-Bunkai-Tool/index.json`
+`https://raw.githubusercontent.com/MONON0629/NN-Object-Bunkai-Tool/main/Website/index.json`
 
 VCCの **Settings > Packages > Add Repository** から上記URLを追加すると、
 Manage Projectから **NN - Object Bunkai Tool** を導入・更新できます。
