@@ -2,6 +2,12 @@ name: Deploy VCC Page
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/pages.yml"
+      - "Website/**"
   workflow_run:
     workflows: [Build Repo Listing]
     types:
