@@ -45,8 +45,14 @@ jobs:
             ~/.nuget/packages
           key: ${{ runner.os }}-${{ hashFiles('**/global.json', '**/*.csproj') }}
 
+      - name: Refresh Listing Website Template
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/vrchat-community/template-package/main/Website/index.html -o Website/index.html
+          curl -fsSL https://raw.githubusercontent.com/vrchat-community/template-package/main/Website/app.js -o Website/app.js
+          curl -fsSL https://raw.githubusercontent.com/vrchat-community/template-package/main/Website/styles.css -o Website/styles.css
+
       - name: Build Package Version Listing
-        run: ${{ env.pathToCi }}/build.cmd BuildRepoListing --root ${{ env.pathToCi }} --list-publish-directory $GITHUB_WORKSPACE/${{ env.listPublishDirectory }} --current-package-name com.nekoneko.object-bunkai-tool --current-listing-url https://raw.githubusercontent.com/MONON0629/NN-Object-Bunkai-Tool/main/Website/index.json
+        run: ${{ env.pathToCi }}/build.cmd BuildRepoListing --root ${{ env.pathToCi }} --list-publish-directory $GITHUB_WORKSPACE/${{ env.listPublishDirectory }} --current-package-name com.nekoneko.object-bunkai-tool --current-listing-url https://raw.githubusercontent.com/kureh4/NN-Object-Bunkai-Tool/main/Website/index.json
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
