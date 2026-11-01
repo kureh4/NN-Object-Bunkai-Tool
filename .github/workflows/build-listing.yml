@@ -10,28 +10,20 @@ on:
     workflows: [Build Release]
     types:
       - completed
-  release:
-    types: [published, created, edited, unpublished, deleted, released]
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
+  contents: write
 
 jobs:
   build-listing:
     name: build-listing
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Local Repository
         uses: actions/checkout@v4
+        with:
+          ref: main
 
       - name: Checkout Automation Repository
         uses: actions/checkout@v4
@@ -53,14 +45,14 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload Pages Artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ${{ env.listPublishDirectory }}
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Commit VPM Listing
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Website
+          if git diff --cached --quiet; then
+            echo "No listing changes."
+            exit 0
+          fi
+          git commit -m "chore: update VPM listing [skip ci]"
+          git push
