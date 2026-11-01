@@ -1,32 +1,29 @@
 import { baseLayerLuminance, StandardLuminance } from 'https://unpkg.com/@fluentui/web-components@2.6.1';
 
-const LISTING_URL = "{{ listingInfo.Url }}";
+const LISTING_URL = "https://raw.githubusercontent.com/MONON0629/NN-Object-Bunkai-Tool/main/Website/index.json";
 
 const PACKAGES = {
-{{~ for package in packages ~}}
-  "{{ package.Name }}": {
-    name: "{{ package.Name }}",
-    displayName: "{{ if package.DisplayName; package.DisplayName; end; }}",
-    description: "{{ if package.Description; package.Description; end; }}",
-    version: "{{ package.Version }}",
+  "com.nekoneko.object-bunkai-tool": {
+    name: "com.nekoneko.object-bunkai-tool",
+    displayName: "NN - Object Bunkai Tool",
+    description: "VRChatアバターや衣装、小物などのメッシュを分解・統合するUnity Editorツールです。",
+    version: "1.3.0",
     author: {
-      name: "{{ if package.Author.Name; package.Author.Name; end; }}",
-      url: "{{ if package.Author.Url; package.Author.Url; end; }}",
+      name: "ねこねこ",
+      url: "https://github.com/MONON0629/NN-Object-Bunkai-Tool",
     },
     dependencies: {
-      {{~ for dependency in package.Dependencies ~}}
-        "{{ dependency.Name }}": "{{ dependency.Version }}",
-      {{~ end ~}}
     },
     keywords: [
-      {{~ for keyword in package.Keywords ~}}
-        "{{ keyword }}",
-      {{~ end ~}}
+        "vrchat",
+        "avatar",
+        "mesh",
+        "editor",
+        "bunkai",
     ],
-    license: "{{ package.License }}",
-    licensesUrl: "{{ package.LicensesUrl }}",
+    license: "",
+    licensesUrl: "",
   },
-{{~ end ~}}
 };
 
 const setTheme = () => {
